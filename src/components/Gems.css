@@ -1,0 +1,368 @@
+.gems-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+hr {
+  width: 95%;
+  border: #ffffff 2px solid;
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.text-column {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  font-weight: 500;
+  text-align: left;
+}
+
+.text-column h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #ffffff;
+  text-align: left;
+  font-weight: 700;
+}
+
+.text-column p {
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.text-column img {
+  width: 300px;
+}
+
+.image-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-column img {
+  max-height: 500px;
+  max-width: 500px;
+  object-fit: contain;
+  animation: pulse 1.5s infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.15);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.card-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 5px 15px 25px rgb(0, 0, 0, .7);
+  text-align: center;
+  width: 600px;
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  font-size: 1.8rem;
+  margin-bottom: 3px;
+  margin-top: -10px;
+  color: #007bff; /* Adjust as needed */
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  animation: pulse 1.5s infinite;
+}
+
+.bullet-points {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.bullet-points li {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.arrows-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: -35px;
+}
+
+.arrow {
+  font-size: 4rem;
+  color: rgb(255, 255, 255);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease-in-out;
+}
+
+.arrow:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .card-slider {
+    width: 90%;
+  }
+
+  .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      background-color: #222;
+      color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 5px 15px 25px rgb(0, 0, 0, .7);
+      text-align: center;
+      width: 300px;
+      font-weight: 500;
+      margin-bottom: 50px;
+    }
+
+  .arrow {
+    font-size: 1.5rem;
+  }
+
+  .top-section {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .countdown-container {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #222;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 10px 14px 16px rgba(255, 255, 255, 0.7);
+      font-size: 1.3rem;
+      color: #ffffff;
+      animation: pulse1 1.5s infinite;
+  }
+  
+  .countdown-label {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-right: 10px;
+  }
+  
+  .countdown-timer {
+      font-size: 1.5rem;
+      font-weight: bold;
+  }
+  
+  .swap-icons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 3px;
+    }
+    
+  .swap-icons img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      transition: transform 0.2s;
+  }
+}
+
+.countdown-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 10px 14px 16px rgba(255, 255, 255, 0.7);
+  font-size: 1.8rem;
+  color: #ffffff;
+  animation: pulse1 1.5s infinite;
+}
+
+.countdown-label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.countdown-timer {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.swap-icons {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 3px;
+}
+
+.swap-icons img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.swap-icons img:hover {
+  transform: scale(1.2);
+}
+
+.copy-button {
+  padding: 10px 10px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #222;
+  border: 3px solid #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 2px;
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.copy-button:hover {
+  background-color: #0056b3;
+}
+
+/* Countdown animation */
+@keyframes pulse1 {
+  0% {
+      transform: scale(1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+      transform: scale(1.02);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.7);
+  }
+  100% {
+      transform: scale(1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .text-column h1 {
+      font-size: 1.8rem;
+  }
+
+  .text-column p {
+      font-size: 0.9rem;
+  }
+
+  .image-column img {
+      max-height: 250px;
+      max-width: 250px;
+  }
+
+  .single-card img {
+      width: 70px;
+      height: 70px;
+  }
+
+  .countdown-container {
+      font-size: 1.5rem;
+  }
+
+  .countdown-label,
+  .countdown-timer {
+      font-size: 1.2rem;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .top-section {
+      flex-direction: column;
+      height: auto;
+  }
+
+  .text-column h1 {
+      font-size: 1.5rem;
+  }
+
+  .text-column p {
+      font-size: 0.85rem;
+  }
+
+  .image-column img {
+      max-height: 200px;
+      max-width: 200px;
+  }
+
+  .single-card img {
+      width: 60px;
+      height: 60px;
+  }
+
+  .bullet-list li {
+      font-size: 1rem;
+  }
+}

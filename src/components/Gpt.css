@@ -1,0 +1,14 @@
+.wcontainer {
+  width: 800px;
+  min-height: 500px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+  background-color: #222;
+  border-radius: 20px;
+  padding: 20px; /* Uniform padding for better text wrapping */
+  color: white;
+  box-shadow: 26px 28px 26px rgba(0, 0, 0, 0.8);
+  overflow: hidden; /* Ensure no content overflows horizontally */
+}
+

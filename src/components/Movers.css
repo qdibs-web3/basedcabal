@@ -1,0 +1,87 @@
+/* src/components/Movers.css */
+.movers-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    overflow: hidden; /* Prevent horizontal scroll */
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .movers-slider {
+    display: flex;
+    flex-wrap: nowrap;
+    animation: slide-left 15s linear infinite;
+    white-space: nowrap;
+    animation-play-state: running; /* Default state is running */
+  }
+  
+  .mover-item {
+    display: flex;
+    align-items: center;
+    margin-right: 30px; /* Space between items */
+    background-color: #222;
+    padding: 10px;
+    border-radius: 20px;
+    flex-shrink: 0; /* Prevents the items from shrinking */
+    width: auto; /* Allow the width to adjust based on content */
+    border: 3px #000000 solid;
+  }
+  
+  .mover-item .coin-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mover-item img.coin-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 100px;
+  }
+  
+  .mover-item .coin-name {
+    margin-right: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .mover-item .price-change {
+    font-size: 14px;
+  }
+  
+  .mover-item .dex-icon {
+    width: 25px;
+    height: 25px;
+    margin-left: 8px;
+    margin-top: 6px;
+  }
+  
+  /* Animation to slide coins from right to left */
+  @keyframes slide-left {
+    0% {
+      transform: translateX(100%); /* Start from the right */
+    }
+    100% {
+      transform: translateX(-100%); /* Move the content offscreen */
+    }
+  }
+
+  .mover-item:hover ~ .movers-slider {
+    animation-play-state: paused; /* Pause when hovering over a mover-item */
+  }
+  
+  /* Alternative for individual item effect */
+  .movers-container:hover .movers-slider {
+    animation-play-state: paused; /* Pause when hovering over the entire container */
+  }
+ 
+  @media (max-width: 1590px) {
+    .movers-container {
+      display: none;
+    }
+  }
+  

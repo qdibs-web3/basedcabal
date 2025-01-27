@@ -1,0 +1,121 @@
+/* Sidebar Styles */
+.sidebar {
+  width: 200px;
+  background-color: #222;
+  color: #fff;
+  border-right: 2px solid #007bff;
+  display: flex;
+  flex-direction: column;
+  padding: .75rem;
+  position: relative;
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Sidebar button styles */
+.sidebar button {
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sidebar button .sidebar-icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 5px;
+}
+
+.sidebar button:hover {
+  background-color: #007bff;
+  border-radius: 20px;
+  opacity: 0.9;
+  transform: scale(1.05);
+  border-radius: 20px;
+}
+
+.sidebar button.active {
+  background-color: #007bff;
+  opacity: .9;
+  cursor: default;
+  transform: none;
+  border-radius: 20px;
+}
+
+/* Styling the <hr> elements */
+.sidebar hr {
+  width: 80%;
+  border: 0;
+  border-top: 2px solid #007bff;
+  margin: 8px;
+}
+
+/* Footer section */
+.sidebar-footer {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: left;
+  padding-left: 1rem;
+}
+
+h1 {
+  color: #007bff;
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.footer-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.footer-icon:hover {
+  transform: scale(1.2);
+}
+
+.footer-text {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.footer-text:hover {
+  color: #007bff;
+  transform: scale(1.1);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

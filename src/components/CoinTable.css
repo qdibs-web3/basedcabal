@@ -1,0 +1,228 @@
+/* Styles for header and filter section */
+.filter-header {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.filter-header h1 {
+    font-size: 2em;
+    color: #ffffff;
+    margin: 30px 0 0 0;
+    font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.filter-header p {
+    font-size: 1em;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 10px 10px 0;
+    display: inline;
+    font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 7px;
+}
+
+/* Styles for filter buttons */
+.filter-button {
+    padding: 4px 8px;
+    font-size: .8em;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #505050;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: #666;
+    border-color: #888;
+    transform: scale(1.05);
+}
+
+.filter-button:active,
+.filter-button.active {
+    background-color: #888;
+    border-color: #fff;
+    transform: none;
+}
+
+#cooldownNotification {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+
+/* Coin Table Container Header Styling */
+.coinTable-container h1 {
+    font-size: 2em;
+    color: #ffffff;
+    margin: 30px 0 0 0;
+    font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Coin Table Container Header Styling */
+.coinTable-container p {
+    font-size: 1.1em;
+    color: #ffffff;
+    margin: 10px 0 0 0;
+    font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Styles for coin table */
+.coinTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.coinTable th, .coinTable td {
+    text-align: left;
+    border: 1px solid black;
+    padding: 5px;
+    color: white;
+    background-color: #222;
+    font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.coinTable th {
+    color: #888;
+    font-size: larger;
+}
+
+.coinTable td {
+    color: #ffffff;
+}
+
+.coinTable td span {
+    color: white; /* Make sure the text color matches your design */
+    align-items: center; /* Vertically center the button and the text */
+    gap: 5px; /* Add space between the icon and the count (adjust as needed) */
+}
+
+.coinTable img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    border-radius: 100%;
+}
+
+.coinTable img:hover {
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+
+/* Coin logo margin adjustment */
+.coin-logo {
+    margin-right: 8px;
+}
+
+/* Styles to remove button border and outline */
+.vote-icon {
+    border: none; /* Remove the border around the image */
+    background: none; /* Remove any background */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Ensure no margin is added */
+    display: inline-block; /* Ensure the image is displayed inline */
+    outline: none; /* Remove any outline (if applicable) */
+    box-shadow: none; /* Ensure there's no box shadow */
+}
+
+button {
+    border: none; /* Remove the default button border */
+    background: none; /* Remove the default button background */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove any margin */
+    cursor: pointer; /* Ensure the cursor is a pointer on hover */
+    outline: none; /* Remove any outline (default behavior) */
+}
+
+.social-icons {
+    display: inline-block; /* Makes the icons display inline with each other */
+    margin-right: 10px; /* Adds some space between icons */
+  }
+  
+  .social-icons img {
+    width: 24px; /* Adjusts the size of the icons */
+    height: 24px; /* Ensures the icons are properly sized */
+    object-fit: contain; /* Ensures the images fit within the defined width and height */
+  }
+
+/* Optional: Add a hover effect for the button */
+button:hover {
+    opacity: 0.6; /* Slight opacity change on hover */
+    transform: scale(1.15);
+}
+
+/* Responsive adjustments for table headers and data */
+@media (max-width: 1325px) {
+    .coinTable th, .coinTable td {
+        font-size: 14px;
+    }
+
+    .coinTable th:nth-child(3), 
+    .coinTable td:nth-child(3), 
+    .coinTable th:nth-child(7), 
+    .coinTable td:nth-child(7) {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .coinTable th, .coinTable td {
+        font-size: 12px;
+    }
+
+    .coinTable th:nth-child(3), 
+    .coinTable td:nth-child(3),
+    .coinTable th:nth-child(5), 
+    .coinTable td:nth-child(5),
+    .coinTable th:nth-child(6), 
+    .coinTable td:nth-child(6),
+    .coinTable th:nth-child(7), 
+    .coinTable td:nth-child(7),
+    .coinTable th:nth-child(9), 
+    .coinTable td:nth-child(9),
+    .coinTable th:nth-child(10), 
+    .coinTable td:nth-child(10),
+    .coinTable th:nth-child(12), 
+    .coinTable td:nth-child(12) {
+        display: none;
+    }
+
+    .filter-header p {
+        display: none;
+    }
+
+    .filter-buttons {
+        display: none;
+    }
+}
