@@ -1,4 +1,3 @@
-// src/components/ParticlesComponent.js
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo, useState } from "react";
 import { loadSlim } from "@tsparticles/slim";
@@ -66,8 +65,17 @@ const ParticlesComponent = (props) => {
     []
   );
 
-  return <Particles id={props.id} init={particlesLoaded} options={options} />;
+  if (init) {
+    return (
+      <Particles
+        id={props.id}
+        particlesLoaded={particlesLoaded}
+        options={options}
+      />
+    );
+  }
+
+  return null;
 };
 
 export default ParticlesComponent;
-
