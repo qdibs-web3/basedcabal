@@ -12,3 +12,9 @@
   overflow: hidden; /* Ensure no content overflows horizontally */
 }
 
+.connect-wallet-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+

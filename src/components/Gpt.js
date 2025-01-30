@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Gpt.css";
 import spin from "../assets/spin.gif";
+import { ThirdwebProvider, ConnectWallet } from "@thirdweb-dev/react";
 
-function Gpt() {
+function GptContent() {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -90,7 +91,18 @@ function Gpt() {
           <img src={spin || "/placeholder.svg"} alt="Spinning logo" />
         </div>
       </div>
+      <div className="connect-wallet-container">
+        <ConnectWallet />
+      </div>
     </div>
+  );
+}
+
+function Gpt() {
+  return (
+    <ThirdwebProvider activeChain="base">
+      <GptContent />
+    </ThirdwebProvider>
   );
 }
 
