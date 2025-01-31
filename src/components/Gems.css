@@ -91,7 +91,7 @@ hr {
   align-items: center;
   gap: 20px;
   justify-content: center;
-  background-color: #222;
+  background-color: #333;
   color: #fff;
   padding: 20px;
   border-radius: 15px;
@@ -165,7 +165,7 @@ hr {
       align-items: center;
       gap: 20px;
       justify-content: center;
-      background-color: #222;
+      background-color: #333;
       color: #fff;
       padding: 20px;
       border-radius: 15px;
@@ -232,7 +232,7 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #222;
+  background-color: #333;
   padding: 10px 20px;
   border-radius: 10px;
   box-shadow: 10px 14px 16px rgba(255, 255, 255, 0.7);
@@ -364,5 +364,19 @@ hr {
 
   .bullet-list li {
       font-size: 1rem;
+  }
+
+  .swap-icons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 3px;
+  }
+  
+  .swap-icons img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.2s;
   }
 }

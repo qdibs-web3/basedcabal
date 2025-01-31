@@ -1,20 +1,97 @@
-.wcontainer {
-  width: 800px;
+.gems-container {
+  width: 90%;
   min-height: 500px;
   margin: 0 auto;
-  text-align: center;
   margin-top: 50px;
   background-color: #222;
   border-radius: 20px;
-  padding: 20px; /* Uniform padding for better text wrapping */
+  padding: 20px;
   color: white;
   box-shadow: 26px 28px 26px rgba(0, 0, 0, 0.8);
-  overflow: hidden; /* Ensure no content overflows horizontally */
-}
-
-.connect-wallet-container {
-  margin-top: 20px;
+  overflow: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
+.second-container {
+  margin-top: 30px; /* Add some space between the first and second container */
+  background-color: #333;
+  position: relative;
+}
+
+.wallet-connect-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.header-container {
+  text-align: center;
+  margin-top: 50px; /* Adjust spacing as needed */
+}
+
+.text-column {
+  flex: 1;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+.image-column {
+  flex: 1;
+}
+
+.vertical-line {
+  background-color: #007bff;
+  width: 3px;
+  height: 100%;
+  margin: 0 15px;
+}
+
+
+@media (max-width: 768px) {
+  .gems-container {
+    width: 90%; /* Make the container full width on mobile */
+    padding: 15px; /* Reduce padding for mobile */
+    flex-direction: column; /* Stack columns vertically */
+    align-items: flex-start;
+  }
+
+  .text-column {
+    padding-left: 10px;
+    padding-right: 10px; /* Further reduce padding for mobile */
+  }
+
+  .image-column {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .vertical-line {
+    display: none; /* Hide the vertical line on mobile */
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 1.2rem; /* Adjust font size for the second container header */
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .countdown-container {
+    font-size: 1rem;
+  }
+
+  /* Reduce the button size on mobile */
+  .copy-button {
+    padding: 8px 10px; /* Smaller button padding */
+    font-size: 0.8rem; /* Smaller font size */
+    margin: 5px -5px; /* Reduce margin between buttons */
+  }
+}
