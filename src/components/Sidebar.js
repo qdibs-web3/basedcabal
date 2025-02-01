@@ -16,6 +16,7 @@ const Sidebar = ({ setPage, currentPage }) => {
       <h1>The Based Cabal</h1>
       <button onClick={() => setPage("gems")} className={currentPage === "gems" ? "active" : ""}><img src={logo} alt="Learn More" className="sidebar-icon" /> $BABAL</button> <hr />
       <button onClick={() => setPage("gpt")} className={currentPage === "gpt" ? "active" : ""}><img src={q} alt="Learn More" className="sidebar-icon" /> Stake $BABAL</button> <hr />
+      <button onClick={() => setPage("chad")} className={currentPage === "chad" ? "active" : ""}> <img src={q} alt="Learn More" className="sidebar-icon" />$BABAL Ranks</button><hr />
       <button onClick={() => setPage("learn")} className={currentPage === "learn" ? "active" : ""}><img src={paperIcon} alt="Learn More" className="sidebar-icon" /> Learn More</button>
       
       {/* Bottom 30%: Text section */}

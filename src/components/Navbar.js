@@ -63,6 +63,13 @@ const Navbar = ({ setPage, currentPage }) => {
           - Stake $BABAL
         </a>
         <a
+          href="#gemini"
+          onClick={(e) => setPage("chad", e)}
+          className={currentPage === "chad" ? "active" : ""}
+        >
+          - BABAL Ranks
+        </a>
+        <a
           href="#learn"
           onClick={(e) => setPage("learn", e)}
           className={currentPage === "learn" ? "active" : ""}
