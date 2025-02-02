@@ -123,29 +123,13 @@ function GptContent() {
                 <div className="staking-box">
                   <p>Staked Balance: {stakedBalance || "0.00"}</p>
                   <label>
-                    Amount to Stake:
-                    <button
-                      className="half-max-button"
-                      onClick={() => fillStakeInput(0.5)}
-                    >
-                      Half
-                    </button>
-                    <button
-                      className="half-max-button"
-                      onClick={() => fillStakeInput(1)}
-                    >
-                      Max
-                    </button>
+                    Amount to Stake: 
+                    <button className="half-max-button" onClick={() => fillStakeInput(0.5)}>Half</button>
+                    <button className="half-max-button" onClick={() => fillStakeInput(1)}>Max</button>
                   </label>
                   <input type="number" id="stakeInput" placeholder="0.00" />
-                  <button
-                    onClick={() =>
-                      handleStake(document.querySelector("#stakeInput").value)
-                    }
-                  >
-                    Stake
-                  </button>
-                </div>
+                  <button onClick={() => handleStake(document.querySelector("#stakeInput").value)}>Stake</button></div>
+
                 {/* Box 4 */}
                 <div
                   className={`staking-box ${
@@ -155,18 +139,8 @@ function GptContent() {
                   <p>Unstaked Balance: {stakedBalance || "0.00"}</p>
                   <label>
                     Amount to Unstake:
-                    <button
-                      className="half-max-button"
-                      onClick={() => fillUnstakeInput(0.5)}
-                    >
-                      Half
-                    </button>
-                    <button
-                      className="half-max-button"
-                      onClick={() => fillUnstakeInput(1)}
-                    >
-                      Max
-                    </button>
+                    <button className="half-max-button" onClick={() => fillUnstakeInput(0.5)}>Half</button>
+                    <button className="half-max-button" onClick={() => fillUnstakeInput(1)}>Max</button>
                   </label>
                   <input type="number" id="unstakeInput" placeholder="0.00" />
                   <button
