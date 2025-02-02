@@ -5,6 +5,7 @@ import {
   useAddress,
   useContract,
 } from "@thirdweb-dev/react";
+import { ThirdwebSDKProvider } from '@thirdweb-dev/react'; 
 import "./Gpt.css";
 
 function GptContent() {
@@ -27,7 +28,7 @@ function GptContent() {
         setIsBalanceLoading(true);
         try {
           const balance = await tokenContract.balanceOf(address);
-          setTokenBalance(balance.displayValue);
+          setTokenBalance(Number(balance.displayValue)); // Ensure tokenBalance is a number
         } catch (error) {
           console.error("Error fetching balance:", error);
         } finally {
@@ -37,15 +38,13 @@ function GptContent() {
       fetchBalances();
     }
   }, [address, tokenContract]);
-
-  // Copy to clipboard logic
+  
   const copyToClipboard = () => {
     navigator.clipboard.writeText(tokenContractAddress);
     setCopyButtonText("Copied!");
     setTimeout(() => setCopyButtonText("Copy CA"), 3000);
   };
 
-  // Staking features
   const handleStake = (amount) => {
     console.log(`Stake ${amount} $BABAL`);
   };
@@ -58,9 +57,16 @@ function GptContent() {
     console.log("Claiming rewards");
   };
 
-  const autoFillStakedBalance = () => {
+  const fillStakeInput = (percentage) => {
+    const input = document.getElementById("stakeInput");
+    const value = percentage === 0.5 ? tokenBalance / 2 : tokenBalance;
+    input.value = value.toFixed(2); // Use .value instead of .placeholder
+  };
+
+  const fillUnstakeInput = (percentage) => {
     const input = document.getElementById("unstakeInput");
-    input.value = stakedBalance;
+    const value = percentage === 0.5 ? stakedBalance / 2 : stakedBalance;
+    input.value = value.toFixed(2); // Use .value instead of .placeholder
   };
 
   if (!tokenContract && !isTokenContractLoading) {
@@ -105,37 +111,64 @@ function GptContent() {
                   <p>Your $BABAL Balance: {tokenBalance || "0.00"}</p>
                 </div>
                 {/* Box 2 */}
-                <div className="staking-box">
+                <div
+                  className={`staking-box ${
+                    stakedBalance === 0 ? "disabled-box" : ""
+                  }`}
+                >
                   <p>Claimable Rewards: {claimableRewards || "0.00"}</p>
                   <button onClick={handleClaimRewards}>Claim Rewards</button>
                 </div>
                 {/* Box 3 */}
                 <div className="staking-box">
                   <p>Staked Balance: {stakedBalance || "0.00"}</p>
-                  <label>Amount to Stake:</label>
-                  <input type="number" placeholder="0.00" />
-                  <br></br>
+                  <label>
+                    Amount to Stake:
+                    <button
+                      className="half-max-button"
+                      onClick={() => fillStakeInput(0.5)}
+                    >
+                      Half
+                    </button>
+                    <button
+                      className="half-max-button"
+                      onClick={() => fillStakeInput(1)}
+                    >
+                      Max
+                    </button>
+                  </label>
+                  <input type="number" id="stakeInput" placeholder="0.00" />
                   <button
                     onClick={() =>
-                      handleStake(document.querySelector("input").value)
+                      handleStake(document.querySelector("#stakeInput").value)
                     }
                   >
                     Stake
                   </button>
                 </div>
                 {/* Box 4 */}
-                <div className="staking-box">
+                <div
+                  className={`staking-box ${
+                    stakedBalance === 0 ? "disabled-box" : ""
+                  }`}
+                >
                   <p>Unstaked Balance: {stakedBalance || "0.00"}</p>
-                  <label>Unstake:</label>
-                  <div style={{ position: "relative" }}>
-                    <input type="number" id="unstakeInput" placeholder="0.00" />
+                  <label>
+                    Amount to Unstake:
                     <button
-                      className="tiny-button"
-                      onClick={autoFillStakedBalance}
+                      className="half-max-button"
+                      onClick={() => fillUnstakeInput(0.5)}
                     >
-                      All
+                      Half
                     </button>
-                  </div>
+                    <button
+                      className="half-max-button"
+                      onClick={() => fillUnstakeInput(1)}
+                    >
+                      Max
+                    </button>
+                  </label>
+                  <input type="number" id="unstakeInput" placeholder="0.00" />
                   <button
                     onClick={() =>
                       handleUnstake(document.querySelector("#unstakeInput").value)
@@ -158,10 +191,14 @@ function GptContent() {
 }
 
 function Gpt() {
+  const clientId = process.env.THIRDWEB_ID; // Replace this with your actual client ID
+
   return (
-    <ThirdwebProvider activeChain="base">
-      <GptContent />
-    </ThirdwebProvider>
+    <ThirdwebSDKProvider clientId={clientId}>
+      <ThirdwebProvider activeChain="base">
+        <GptContent />
+      </ThirdwebProvider>
+    </ThirdwebSDKProvider>
   );
 }
 

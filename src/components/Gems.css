@@ -32,7 +32,7 @@ hr {
 .text-column h1 {
   margin: 0;
   font-size: 2rem;
-  color: #ffffff;
+  color: #007bff;
   text-align: left;
   font-weight: 700;
 }
@@ -142,7 +142,7 @@ hr {
 
 .arrow {
   font-size: 4rem;
-  color: rgb(255, 255, 255);
+  color: #007bff;
   background: transparent;
   border: none;
   cursor: pointer;

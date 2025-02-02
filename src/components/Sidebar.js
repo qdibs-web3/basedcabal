@@ -5,7 +5,8 @@ import flameIcon from '../assets/flame.png';
 import logo from '../assets/logoicon.png';
 import trophyIcon from '../assets/trophy.png';
 import paperIcon from '../assets/paper.png';
-import q from '../assets/q.png';
+import stake from '../assets/lockicon.png';
+import chad from '../assets/diamondicon.png'
 import xIcon from '../assets/x.png';
 import coin from '../assets/coins.png';
 
@@ -15,8 +16,8 @@ const Sidebar = ({ setPage, currentPage }) => {
     <aside className="sidebar">
       <h1>The Based Cabal</h1>
       <button onClick={() => setPage("gems")} className={currentPage === "gems" ? "active" : ""}><img src={logo} alt="Learn More" className="sidebar-icon" /> $BABAL</button> <hr />
-      <button onClick={() => setPage("gpt")} className={currentPage === "gpt" ? "active" : ""}><img src={q} alt="Learn More" className="sidebar-icon" /> Stake $BABAL</button> <hr />
-      <button onClick={() => setPage("chad")} className={currentPage === "chad" ? "active" : ""}> <img src={q} alt="Learn More" className="sidebar-icon" />$BABAL Ranks</button><hr />
+      <button onClick={() => setPage("gpt")} className={currentPage === "gpt" ? "active" : ""}><img src={stake} alt="Learn More" className="sidebar-icon" /> Stake $BABAL</button> <hr />
+      <button onClick={() => setPage("chad")} className={currentPage === "chad" ? "active" : ""}> <img src={chad} alt="Learn More" className="sidebar-icon" />$BABAL Ranks</button><hr />
       <button onClick={() => setPage("learn")} className={currentPage === "learn" ? "active" : ""}><img src={paperIcon} alt="Learn More" className="sidebar-icon" /> Learn More</button>
       
       {/* Bottom 30%: Text section */}

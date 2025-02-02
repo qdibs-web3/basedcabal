@@ -34,16 +34,21 @@ function Chad() {
   useEffect(() => {
     const fetchHolders = async () => {
       try {
-        // Fetch token holders
+        // Fetch token holders with headers
         const response = await Moralis.EvmApi.token.getTokenOwners({
           chain: "8453",
           limit: "30",
           order: "DESC",
           tokenAddress: "0x768BE13e1680b5ebE0024C42c896E3dB59ec0149",
+        }, {
+          headers: {
+            "X-API-Key": process.env.REACT_APP_MORALIS_API_KEY, // Use your API key from environment variables
+            "Content-Type": "application/json",
+          },
         });
-
+  
         console.log(response); // Log the response to check its structure
-
+  
         // Check if response contains data and set holders
         if (response.result) {
           setHolders(response.result);
@@ -55,9 +60,10 @@ function Chad() {
         setError("Failed to fetch token holders. Please try again later.");
       }
     };
-
+  
     fetchHolders();
   }, []); // Empty dependency array to fetch once when component mounts
+  
 
   const paginateHolders = () => {
     const indexOfLast = currentPage * itemsPerPage;

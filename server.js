@@ -5,8 +5,7 @@ const path = require("path");
 
 const app = express();
 
-// const uri = process.env.MONGODB_URI || "mongodb+srv://junaid:junaid@invoicemanagement.44peg.mongodb.net/?retryWrites=true&w=majority&appName=InvoiceManagement";
-const uri = "mongodb+srv://basegems2024:SHrsrfQV6fKPIifp@basegems.5nhqq.mongodb.net/?retryWrites=true&w=majority&appName=BaseGems";
+const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,

@@ -40,7 +40,6 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-
 }
 
 .second-container h1 {
@@ -53,17 +52,47 @@
   font-style: normal;
   font-size: 20px;
   margin-top: -30px;
-
 }
 
 .wallet-connect-button {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 40px;
   font-family: "Exo 2", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+.input-with-buttons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.input-with-buttons input {
+  flex: 1;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.input-with-buttons button {
+  padding: 3px 8px;
+  font-size: 12px;
+  background-color: #444;
+  color: white;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-with-buttons button:hover {
+  background-color: #555;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .staking-box-container {
@@ -138,7 +167,6 @@
   width: 25%;
   padding: 8px;
   margin: 10px 0 5px;
-
   background-color: #007bff;
   color: white;
   border: none;
@@ -152,12 +180,30 @@
   transform: scale(0.9);
 }
 
+.half-max-button {
+  padding: 3px 8px !important; /* Smaller padding */
+  font-size: 12px !important; /* Smaller font size */
+  background-color: #444 !important; /* Unique background color */
+  color: white !important; /* Text color */
+  border: 1px solid #007bff !important; /* Border color */
+  border-radius: 5px !important; /* Rounded corners */
+  cursor: pointer !important; /* Pointer cursor */
+  margin: 0 2px !important; /* Margin between buttons */
+  width: auto !important; /* Auto width */
+  height: auto !important; /* Auto height */
+  transition: background-color 0.2s ease; /* Smooth transition for hover effect */
+}
+
+/* Ensure hover effect applies only to the button being hovered */
+.half-max-button:hover {
+  background-color: #555 !important; /* Hover background color */
+}
+
 @media (max-width: 768px) {
   .staking-box-container {
     grid-template-columns: 1fr;
   }
 }
-
 
 .header-container {
   text-align: center;
@@ -170,10 +216,13 @@
   padding-right: 20px;
 }
 
+.text-column h1 {
+  color: #007bff;
+}
+
 .image-column {
   flex: 1;
 }
-
 
 .vertical-line {
   background-color: #007bff;
