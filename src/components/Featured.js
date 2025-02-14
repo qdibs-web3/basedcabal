@@ -40,7 +40,7 @@ const Featured = () => {
 
   return (
     <div className="featured-container">
-      <h1>Featured Base Cabal Listings</h1>
+      <h1>Featured Based Den Listings</h1>
       <div className="featured-cards">
         {coinData.map((coin, index) => (
           <div key={index} className="featured-card">
@@ -74,7 +74,7 @@ const Featured = () => {
       </div>
       <div className="sliding-image-container1">
         <img
-          src={require('../assets/babal1.png')} // Ensure the image path is correct
+          src={require('../assets/featured.png')} // Ensure the image path is correct
           alt="Sliding"
           className="sliding-image1"
         />

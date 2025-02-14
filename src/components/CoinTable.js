@@ -17,43 +17,65 @@ const CoinTable = () => {
     const fetchData = async () => {
       try {
         const response = await fetch("/basecoins.json");
+        if (!response.ok) {
+          throw new Error("Failed to fetch basecoins.json");
+        }
         const tokens = await response.json();
-
+  
         const tokenDataPromises = tokens.map(async (token) => {
-          const res = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${token}`);
-          const data = await res.json();
-          const matchedPair = data?.pairs?.find(pair => pair.baseToken?.address === token);
-
-          return matchedPair ? { ...matchedPair, tokenAddress: token } : null;
+          try {
+            const res = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${token}`);
+            if (!res.ok) {
+              throw new Error(`Failed to fetch data for token: ${token}`);
+            }
+            const data = await res.json();
+            const matchedPair = data?.pairs?.find(pair => pair.baseToken?.address === token);
+            return matchedPair ? { ...matchedPair, tokenAddress: token } : null;
+          } catch (innerError) {
+            console.error("Error in Dexscreener API:", innerError.message);
+            return null;
+          }
         });
-
+  
         const tokenData = (await Promise.all(tokenDataPromises)).filter(Boolean);
         setData(tokenData);
       } catch (error) {
-        console.error("Error fetching coin data:", error);
+        console.error("Error fetching coin data:", error.message);
       }
     };
-
+  
     fetchData();
   }, []);
+  
 
-  // Fetch the vote count for each coin from the backend
   useEffect(() => {
     const fetchVotes = async () => {
-      const updatedData = await Promise.all(
-        data.map(async (coin) => {
-          const response = await fetch(`${API_URL}/api/votes/${coin.baseToken?.address}`);
-          const coinData = await response.json();
-          return { ...coin, votes: coinData.votes }; // Make sure to add votes directly here
-        })
-      );
-      setData(updatedData);
+      try {
+        const updatedData = await Promise.all(
+          data.map(async (coin) => {
+            try {
+              const response = await fetch(`${API_URL}/api/votes/${coin.baseToken?.address}`);
+              if (!response.ok) {
+                throw new Error(`Failed to fetch votes for ${coin.baseToken?.address}`);
+              }
+              const coinData = await response.json();
+              return { ...coin, votes: coinData.votes }; // Add votes to the coin object
+            } catch (innerError) {
+              console.error("Error fetching votes:", innerError.message);
+              return { ...coin, votes: 0 }; // Default votes to 0 on error
+            }
+          })
+        );
+        setData(updatedData);
+      } catch (error) {
+        console.error("Error in fetchVotes:", error.message);
+      }
     };
   
-    const interval = setInterval(fetchVotes, 1000); // Update vote count every second
-  
+    const interval = setInterval(fetchVotes, 10000); // Update vote count every second
     return () => clearInterval(interval); // Clean up the interval on component unmount
   }, [data]);
+  
 
   
 
@@ -131,7 +153,7 @@ const CoinTable = () => {
   
   return (
     <div className="coinTable-container">
-      <h1>All Babal Listings</h1>
+      <h1>All Based Den Listings</h1>
       {cooldownMessage && (
         <h1 style={{ color: 'white', fontSize: '1.2em', margin: '10px 0' }}>
           You already voted for {cooldownMessage.coinName} today, vote again in {cooldownMessage.hoursLeft}h {cooldownMessage.minutesLeft}m.

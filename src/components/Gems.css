@@ -9,11 +9,6 @@
   font-style: normal;
 }
 
-hr {
-  width: 95%;
-  border: #ffffff 2px solid;
-}
-
 .top-section {
   display: flex;
   justify-content: space-between;
@@ -75,111 +70,94 @@ hr {
       transform: scale(1);
   }
 }
-
-.card-slider {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  width: 300px;
-  margin: 0 auto;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  justify-content: center;
-  background-color: #333;
-  color: #fff;
+.gems-container1 {
+  text-align: center; /* Center the h1 header */
   padding: 20px;
-  border-radius: 15px;
-  box-shadow: 5px 15px 25px rgb(0, 0, 0, .7);
-  text-align: center;
-  width: 600px;
-  font-family: "Exo 2", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+  width: 80%;
+  min-height: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: #222;
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+  box-shadow: 16px 18px 16px #007bff;
+  margin-bottom: 60px;
 }
 
-.card-details {
+.gems-container1 h1 {
+  text-align: left;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  left: 500px;
+}
+
+.gems-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1200px; /* To keep the layout clean */
+  margin: 0 auto; /* Center the grid */
+}
+
+.gem-box {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  border: 2px solid #007bff;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.card-header {
-  font-size: 1.8rem;
-  margin-bottom: 3px;
-  margin-top: -10px;
-  color: #007bff; /* Adjust as needed */
+.gem-box:hover {
+  transform: scale(1.02);
+  background-color: #222;
 }
 
-.card img {
-  width: 100px;
-  height: 100px;
-  animation: pulse 1.5s infinite;
-}
-
-.bullet-points {
-  list-style-type: disc;
-  padding-left: 20px;
-  text-align: left;
-}
-
-.bullet-points li {
-  margin: 10px 0;
+.gem-box h1 {
   font-size: 1.2rem;
-}
-
-.arrows-container {
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-  margin-top: -35px;
-}
-
-.arrow {
-  font-size: 4rem;
   color: #007bff;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  transition: transform 0.2s ease-in-out;
+  margin: 3px 0 10px 0;
 }
 
-.arrow:hover {
-  transform: scale(1.2);
+.gem-box .bullet {
+  color: #007bff; 
+  font-size: 2.5rem;
+  margin-right: 10px;
 }
+
+.gem-box p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.bullet-container {
+  display: flex;
+  align-items: center; /* Ensures the bullet and text are vertically aligned */
+}
+
+.bullet {
+  font-size: 1rem;
+  margin-right: 8px;
+  color: #000; /* Adjust as needed */
+  line-height: 1; /* Ensures consistent alignment */
+}
+
+.bullet + p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #ffffff; /* Adjust text color as needed */
+  text-align: left;
+  line-height: 1.4; /* Consistent text spacing */
+}
+
+
 
 @media (max-width: 768px) {
-  .card-slider {
-    width: 90%;
-  }
-
-  .card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      justify-content: center;
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 5px 15px 25px rgb(0, 0, 0, .7);
-      text-align: center;
-      width: 300px;
-      font-weight: 500;
-      margin-bottom: 50px;
-    }
-
-  .arrow {
-    font-size: 1.5rem;
-  }
-
   .top-section {
       display: flex;
       justify-content: space-between;
@@ -187,44 +165,48 @@ hr {
       margin-bottom: 20px;
     }
 
-    .countdown-container {
-      margin-top: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #222;
-      padding: 10px 20px;
-      border-radius: 10px;
-      box-shadow: 10px 14px 16px rgba(255, 255, 255, 0.7);
-      font-size: 1.3rem;
-      color: #ffffff;
-      animation: pulse1 1.5s infinite;
+  .gems-grid {
+    grid-template-columns: 1fr; /* Stack vertically on mobile screens */
+  }
+
+  .countdown-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 10px 14px 16px rgba(255, 255, 255, 0.7);
+    font-size: 1.3rem;
+    color: #ffffff;
+    animation: pulse1 1.5s infinite;
+}
+
+.countdown-label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.countdown-timer {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.swap-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 3px;
   }
   
-  .countdown-label {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-right: 10px;
-  }
-  
-  .countdown-timer {
-      font-size: 1.5rem;
-      font-weight: bold;
-  }
-  
-  .swap-icons {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 3px;
-    }
-    
-  .swap-icons img {
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-      transition: transform 0.2s;
-  }
+.swap-icons img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
 }
 
 .countdown-container {

@@ -77,18 +77,18 @@ function GptContent() {
     <div className="gems-container">
       <div className="top-section" style={{ display: "flex", width: "98%" }}>
         <div className="text-column">
-          <h1>Stake with the Base Cabal</h1>
+          <h1>Connect Wallet to stake $DEN</h1>
           <p>
-          $BABAL, the meme coin inspired by the legendary Base Cabal, offers
+          $DEN, the meme coin inspired by the legendary Based Den, offers
             holders more than just a token – it's a key to a thriving and
-            rewarding ecosystem. By staking their $BABAL coins, holders can
-            unlock compounding rewards in the form of additional $BABAL tokens.
+            rewarding ecosystem. By staking their $DEN coins, holders can
+            unlock compounding rewards in the form of additional $DEN tokens.
             This staking mechanism not only benefits the individual investor by
-            growing their holdings over time but also strengthens the $BABAL
+            growing their holdings over time but also strengthens the $DEN
             ecosystem as a whole. Staking helps to reduce market volatility,
             encourage long-term commitment, and create a sustainable cycle of
-            growth. As the Base Cabal community grows, $BABAL staking is a
-            win-win for everyone involved. Hold, stake, and watch your $BABAL
+            growth. As the Base Cabal community grows, $DEN staking is a
+            win-win for everyone involved. Hold, stake, and watch your $DEN
             stack grow while supporting the coin's mission of building a strong,
             vibrant community supporting Base projects!
           </p>
@@ -101,14 +101,18 @@ function GptContent() {
         </div>
         {address ? (
           isBalanceLoading ? (
-            <h1>Loading your holdings...</h1>
+            <div className="wallet-connect">
+              <h1>Loading your holdings...</h1>
+            </div>
           ) : tokenBalance > 0 ? (
             <>
-              <h1>Welcome, {address}</h1>
+              <div className="wallet-connect">
+                <h1>Welcome, {address}</h1>
+              </div>
               <div className="staking-box-container">
                 {/* Box 1 */}
                 <div className="staking-box">
-                  <p>Your $BABAL Balance: {tokenBalance || "0.00"}</p>
+                <p>Your $DEN Balance: {Number(tokenBalance).toFixed(2) || "0.00"}</p>
                 </div>
                 {/* Box 2 */}
                 <div
@@ -124,8 +128,8 @@ function GptContent() {
                   <p>Staked Balance: {stakedBalance || "0.00"}</p>
                   <label>
                     Amount to Stake: 
-                    <button className="half-max-button" onClick={() => fillStakeInput(0.5)}>Half</button>
-                    <button className="half-max-button" onClick={() => fillStakeInput(1)}>Max</button>
+                    <button className="half-button" onClick={() => fillStakeInput(0.5)}>Half</button>
+                    <button className="max-button" onClick={() => fillStakeInput(1)}>Max</button>
                   </label>
                   <input type="number" id="stakeInput" placeholder="0.00" />
                   <button onClick={() => handleStake(document.querySelector("#stakeInput").value)}>Stake</button></div>
@@ -139,8 +143,8 @@ function GptContent() {
                   <p>Unstaked Balance: {stakedBalance || "0.00"}</p>
                   <label>
                     Amount to Unstake:
-                    <button className="half-max-button" onClick={() => fillUnstakeInput(0.5)}>Half</button>
-                    <button className="half-max-button" onClick={() => fillUnstakeInput(1)}>Max</button>
+                    <button className="half-button" onClick={() => fillUnstakeInput(0.5)}>Half</button>
+                    <button className="max-button" onClick={() => fillUnstakeInput(1)}>Max</button>
                   </label>
                   <input type="number" id="unstakeInput" placeholder="0.00" />
                   <button
@@ -154,10 +158,14 @@ function GptContent() {
               </div>
             </>
           ) : (
-            <h1>You need $BABAL to view this Page</h1>
+            <div className="wallet-connect">
+            <h1>You need $DEN to view this Page</h1>
+            </div>
           )
         ) : (
-          <h1>Connect Wallet Holding $BABAL</h1>
+          <div className="wallet-connect">
+          <h1>Connect Wallet Holding $DEN</h1>
+          </div>
         )}
       </div>
     </div>

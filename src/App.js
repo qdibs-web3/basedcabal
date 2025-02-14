@@ -10,7 +10,8 @@ import Learn from './components/Learn';
 import Movers from './components/Movers';
 import Gems from './components/Gems';
 import Gpt from './components/Gpt';
-import Chad from './components/Chad'; // Import Chad component
+import Chad from './components/Chad'; 
+import Moon from './components/Moon';
 import './App.css';
 import ParticlesComponent from './components/ParticlesComponent';
 
@@ -36,15 +37,16 @@ function App() {
       <div className="main-content">
         <Sidebar setPage={setPage} currentPage={page} />
         <div className="content">
-          {page !== "gems" && page !== "gpt" && page !== "chad" && <Movers />}
-          {page !== "gems" && page !== "gpt" && page !== "chad" && <PromoBox setPage={setPage} />}
+          {page !== "gems" && page !== "gpt" && page !== "chad" && page !== "moon" && <Movers />}
+          {page !== "gems" && page !== "gpt" && page !== "chad" && page !== "moon" && <PromoBox setPage={setPage} />}
           {page === "all" && <CoinTable data={data} />}
           {page === "featured" && <FeaturedCoins data={data} />} 
           {page === "community" && <Community data={data} />}
           {page === "learn" && <Learn data={data} />}
-          {page === "gems" && <Gems data={data} />}
+          {page === "gems" && <Gems setPage={setPage} data={data} />}
           {page === "gpt" && <Gpt data={data} />}
           {page === "chad" && <Chad data={data} />}
+          {page === "moon" && <Moon data={data} />}
         </div>
       </div>
     </div>

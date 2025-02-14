@@ -89,18 +89,23 @@ function Chad() {
 
   return (
     <div className="chad-container">
-      <h1>Top 30 $BABAL Holders</h1>
+      <h1>$DEN Whale Watcher</h1>
       {holders.length === 0 ? (
         <p>Loading holders...</p>
       ) : (
         <ul>
-          {paginateHolders().map((holder, index) => (
-            <li key={index}>
-              <p><span className="label">Holder Address:</span> <span className="value">{holder.ownerAddress ?? "N/A"}</span></p>
-              <p><span className="label">$BABAL Balance:</span> <span className="value">{parseFloat(holder.balanceFormatted ?? 0).toFixed(2)} $BABAL</span></p>
-              <p><span className="label">Percent of Supply:</span> <span className="value">{parseFloat(holder.percentageRelativeToTotalSupply ?? 0).toFixed(2)}%</span></p>
-            </li>
-          ))}
+          {paginateHolders().map((holder, index) => {
+            const rank = (currentPage - 1) * itemsPerPage + index + 1;
+
+            return (
+              <li key={index}>
+                <p><span className="label">Holder Rank:</span> <span className="value">#{rank}</span></p>
+                <p><span className="label">Holder Address:</span> <span className="value">{holder.ownerAddress ?? "N/A"}</span></p>
+                <p><span className="label">$DEN Balance:</span> <span className="value">{parseFloat(holder.balanceFormatted ?? 0).toFixed(2)} $BABAL</span></p>
+                <p><span className="label">Percent of Supply:</span> <span className="value">{parseFloat(holder.percentageRelativeToTotalSupply ?? 0).toFixed(2)}%</span></p>
+              </li>
+            );
+          })}
         </ul>
       )}
       <div className="pagination">

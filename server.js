@@ -2,8 +2,10 @@ const express = require("express");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const cors = require("cors");
 const path = require("path");
-
 const app = express();
+
+// Check if MongoDB URI is loaded correctly
+console.log("MongoDB URI:", process.env.MONGODB_URI);
 
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri, {
@@ -16,7 +18,7 @@ const client = new MongoClient(uri, {
 
 // Enable CORS for all routes
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? 'https://basecabal.vercel.app' : 'http://localhost:4000',
+  origin: process.env.NODE_ENV === 'production' ? 'https://basedcabal.vercel.app' : 'http://localhost:4000',
   methods: ['GET', 'POST'],
   credentials: true
 }));

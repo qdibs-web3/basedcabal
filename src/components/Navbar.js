@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import logo from "../assets/navhead.png";
+import logo from "../assets/nav.png";
 import lightIcon from "../assets/sun.png"; // Placeholder image for light mode
 import darkIcon from "../assets/moon.png";   // Placeholder image for dark mode
 
@@ -53,21 +53,28 @@ const Navbar = ({ setPage, currentPage }) => {
           onClick={(e) => setPage("gems", e)}
           className={currentPage === "gems" ? "active" : ""}
         >
-          - $BABAL
+          - $BDEN
         </a>
         <a
           href="#gemini"
           onClick={(e) => setPage("gpt", e)}
           className={currentPage === "gpt" ? "active" : ""}
         >
-          - Stake $BABAL
+          - Stake $BDEN
         </a>
         <a
-          href="#gemini"
+          href="#chad"
           onClick={(e) => setPage("chad", e)}
           className={currentPage === "chad" ? "active" : ""}
         >
-          - BABAL Ranks
+          - $BDEN Ranks
+        </a>
+        <a
+          href="#moon"
+          onClick={(e) => setPage("moon", e)}
+          className={currentPage === "moon" ? "active" : ""}
+        >
+          - MC Goals
         </a>
         <a
           href="#learn"
@@ -95,7 +102,7 @@ const Navbar = ({ setPage, currentPage }) => {
           onClick={(e) => setPage("featured", e)}
           className={currentPage === "featured" ? "active" : ""}
         >
-          - BABAL List
+          - Den List
         </a>
         <a
           href="https://x.com/basegems_io"
