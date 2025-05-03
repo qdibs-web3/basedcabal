@@ -1,4 +1,5 @@
-// Use relative path for API calls, Vercel handles routing
-const API_URL = "."; // Changed to relative path
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? '' 
+  : `http://localhost:${process.env.PORT || 5000}`;
 
 export default API_URL;
